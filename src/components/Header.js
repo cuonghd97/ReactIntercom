@@ -8,7 +8,7 @@ export default class Header extends Component {
       <div id="header">
         <div id="lower-header">
           <NavLink to='/' style={{float: 'left'}}>
-            <div style={{marginTop: '5px', paddingLeft: '135px'}}><img src={logo} /></div></NavLink>
+            <div style={{marginTop: '5px', paddingLeft: '135px'}}><img alt='anh' src={logo} /></div></NavLink>
           <div id="welcome">
             <span><span className="menu-trigger"><span style={{fontWeight: 'normal'}}>Chào mừng,</span>Snake</span></span>
             <div className="dropdown-menu-absolute">
@@ -25,7 +25,7 @@ export default class Header extends Component {
                 <NavLink to='/'>TRỢ GIÚP VÀ HỖ TRỢ</NavLink>
               </li>
               <li>
-                <NavLink to="tel:19002010">Hotline 24/7: 1900.2010</NavLink>
+                <NavLink to="/">Hotline 24/7: 1900.2010</NavLink>
               </li>
             </ul>
           </div>
