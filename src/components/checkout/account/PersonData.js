@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Col, Row, InputGroup, Button } from 'bootstrap-4-react'
+import { Form, Col, Row, Button } from 'bootstrap-4-react'
 
 export default class PersonData extends Component {
   render () {
@@ -17,7 +17,7 @@ export default class PersonData extends Component {
                     <Form.Input name="firstname" type="text" placeholder="Họ (*)" />
                   </Form.Group>
                   <Form.Group>
-                    <input name="lastname" type="text" placeholder="Tên (*)" />
+                    <Form.Input name="lastname" type="text" placeholder="Tên (*)" />
                   </Form.Group>
                   <Form.Group className="form-group">
                     <Form.Input className="disabled" disabled name="email" style={{backgroundColor: '#F7F7F9'}} type="text" placeholder="Địa chỉ email (*):" />
@@ -59,7 +59,7 @@ export default class PersonData extends Component {
                     <Form.Input name="city" type="text" placeholder="Thành phố:" />
                   </Form.Group>
                   <Form.Group>
-                    <select id="region" name="state">
+                    <Form.Select id="region" name="state">
                       <option value>
                         Tiểu bang / Tỉnh:
                       </option>
@@ -69,7 +69,7 @@ export default class PersonData extends Component {
                       <option value="TP HCM">
                         TP HCM
                       </option>
-                    </select>
+                    </Form.Select>
                   </Form.Group>
                   <Form.Group>
                     <Form.CustomSelect id="timezone" name="timezone">

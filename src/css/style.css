@@ -35,11 +35,22 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+form#form-add-user {
+    display: flex;
+}
+
+#form-add-user .block-input {
+    display: flex;
+}
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
     padding-top:15px;
     padding-bottom:15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+label.form-check-label#label-notification {
+    margin-top: -24px;
 }
 
 #security h3{

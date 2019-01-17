@@ -1,21 +1,50 @@
 import React, { Component } from "react"
 import "./css/style.css"
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import Home from "./components/Home"
-import Billing from './components/Billing'
-import Account from "./components/Account";
-import Security from "./components/Security"
+import { BrowserRouter as Router } from "react-router-dom"
+import RouterURL from "./routeURL/RouterURL";
+import Mobilemenu from './components/Mobilemenu'
+import Header from './components/Header'
+import Leftmenu from './components/Leftmenu'
+import Footer from './components/Footer';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShowFormSSH: false
+    }
+  }
+
+  changeShowFormSSH = ()=>{
+    this.setState({
+      isShowFormSSH: !this.state.isShowFormSSH
+    })
+  }
+
+  getNewSSHKey = (data)=>{
+    console.log(data)
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/home' component={Home}/>
-          <Route exact path='/checkout/billing/' component={Billing}/>
-          <Route exact path='/checkout/account/' component={Account}/>
-          <Route exact path='/checkout/security/' component={Security}/>
+          <Mobilemenu></Mobilemenu>
+          <Header></Header>
+          <div id="content" style={{position: 'relative'}}>
+            <Leftmenu></Leftmenu>
+            <div id="content-itself">
+              <div className="container-fluid">
+                <RouterURL
+                  changeShowFormSSH={()=>this.changeShowFormSSH()}
+                  isShowFormSSH={this.state.isShowFormSSH}
+                  getNewSSHKey={(data)=>this.getNewSSHKey(data)}
+                />
+              </div>
+            </div>
+            <div className="clearfix"></div>
+          </div>
+          <Footer></Footer>
         </div>
       </Router>
     )
