@@ -17,19 +17,24 @@ export default class AddSSHKey extends Component {
     this.setState({
       [name]: value
     })
-    console.log(this.state)
+  }
+
+  submitForm = (event, data)=>{
+    event.preventDefault()
+    this.props.getNewSSHKey(data)
+    this.props.changeShowFormSSH()
   }
 
   render () {
     return (
-      <Form id="registerKeypairForm" name="registerKeypairForm">
+      <Form id="registerKeypairForm" name="registerKeypairForm" className="col">
         <h4>Thêm mới SSH Key</h4>
         <label>Nhập tên</label>
         <Form.Input className="styled-input" name="key_name" type="text" onChange={(event)=>this.isChange(event)} />
         <label>PUBLIC SSH KEY</label>
         <textarea className="styled-input" name="public_key" defaultValue={""} onChange={(event)=>this.isChange(event)} />
         <div className="text-right">
-          <Button primary onClick={(data)=>this.props.getNewSSHKey(this.state)}>Thêm SSH Key</Button>
+          <Button primary onClick={(event, data)=>this.submitForm(event, this.state)}>Thêm SSH Key</Button>
         </div>
       </Form>
     )

@@ -12,7 +12,14 @@ export default class RouterURL extends Component {
         <Route exact path='/' render={()=><Home/>}/>
         <Route exact path='/home/' render={()=><Home/>}/>
         <Route exact path='/checkout/billing/' component={Billing}/>
-        <Route exact path='/checkout/account/' component={Account}/>
+        <Route exact path='/checkout/account/'
+          render={
+            ()=><Account
+              selfInfo={(data)=>this.props.selfInfo(data)}
+              userData={this.props.userData}
+            />
+          }
+        />
         <Route exact path='/checkout/security/'
           render={
             ()=><Security

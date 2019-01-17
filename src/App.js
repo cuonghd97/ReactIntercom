@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShowFormSSH: false
+      isShowFormSSH: false,
+      userData: {firstname: "Hoang", lastname: "cuong", email: "duccuongdc97@gmail.com", address1: "address1", address2: "address2", phonenumber: "0343944610", companyname: "Meditech JSC", registeraddress: "registeraddress", director: "director", taxno: "01234", country: "VN", region: "abc", state: "state", city: "HN", timezone: "Etc/GMT+12|-12:00", postcode: "01234"}
     }
   }
 
@@ -23,6 +24,12 @@ class App extends Component {
 
   getNewSSHKey = (data)=>{
     console.log(data)
+  }
+
+  selfInfo = (data)=>{
+    var item = {}
+    item.firstname = data
+    console.log(item)
   }
 
   render() {
@@ -39,6 +46,8 @@ class App extends Component {
                   changeShowFormSSH={()=>this.changeShowFormSSH()}
                   isShowFormSSH={this.state.isShowFormSSH}
                   getNewSSHKey={(data)=>this.getNewSSHKey(data)}
+                  selfInfo={(data)=>this.selfInfo(data)}
+                  userData={this.state.userData}
                 />
               </div>
             </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Col, Row, Button } from 'bootstrap-4-react'
 import AddSSHKey from './AddSSHKey';
+import ModalSuccess from './modal/ModalSuccess';
+import ModalSSHKey from './modal/ModalSSHKey';
 
 export default class SSHKey extends Component {
 
@@ -20,7 +22,8 @@ export default class SSHKey extends Component {
     if (this.props.isShowFormSSH === true) {
       return (
         <AddSSHKey
-        getNewSSHKey={(data)=>this.props.getNewSSHKey(data)}
+          getNewSSHKey={(data)=>this.props.getNewSSHKey(data)}
+          changeShowFormSSH={()=>this.props.changeShowFormSSH()}
         />
       )
     } else {
@@ -40,9 +43,9 @@ export default class SSHKey extends Component {
           </div>
           <Row>
             <Col col="col-xs-12 sm-6" className="text-left">
-              <Button primary>Tạo SSH Key mới</Button>
+              <Button primary data-toggle="modal" data-target=".add-key-modal">Tạo SSH Key mới</Button>
             </Col>
-            <Col col="col-xs-12 col-sm-6" className="text-right" id="show-container">
+            <Col col="col-xs-12 sm-6" className="text-right" id="show-container">
             {
               this.changeButton()
             }
@@ -52,6 +55,8 @@ export default class SSHKey extends Component {
             }
           </Row>
         </div>
+        <ModalSSHKey/>
+        <ModalSuccess/>
       </Col>
     )
   }

@@ -13,7 +13,7 @@ export default class Account extends Component {
         <Topnav/>
         <div id="account_settings">
           <h3>Thiết lập tài khoản</h3>
-          <PersonData/>
+          <PersonData userData={this.props.userData} selfInfo={(data)=>this.props.selfInfo(data)}/>
           <div style={{clear: 'both'}} />
           <AddUser/>
           <div className="row gutter-80 lowered-marign">
