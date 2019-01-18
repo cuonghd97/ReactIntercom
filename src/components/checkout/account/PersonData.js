@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { Form, Col, Row, Button } from 'bootstrap-4-react'
-import FirstName from './persondata/FirstName';
-import LastName from './persondata/LastName';
-import PhoneNumber from './persondata/PhoneNumber';
-import CompanyName from './persondata/CompanyName';
-import RegisterAddress from './persondata/RegisterAddress'
-import Director from './persondata/Director'
-import PostCode from './persondata/PostCode'
-import TaxNo from './persondata/TaxNo'
-import TimeZone from './persondata/TimeZone'
-import Address1 from './persondata/Address1'
-import Address2 from './persondata/Address2'
-import City from './persondata/City'
-import Country from './persondata/Country'
-import State from './persondata/State'
+// import FirstName from './persondata/FirstName';
+// import LastName from './persondata/LastName';
+// import PhoneNumber from './persondata/PhoneNumber';
+// import CompanyName from './persondata/CompanyName';
+// import RegisterAddress from './persondata/RegisterAddress'
+// import Director from './persondata/Director'
+// import PostCode from './persondata/PostCode'
+// import TaxNo from './persondata/TaxNo'
+// import TimeZone from './persondata/TimeZone'
+// import Address1 from './persondata/Address1'
+// import Address2 from './persondata/Address2'
+// import City from './persondata/City'
+// import Country from './persondata/Country'
+// import State from './persondata/State'
 
 export default class PersonData extends Component {
   constructor(props) {
@@ -38,13 +38,16 @@ export default class PersonData extends Component {
     }
   }
 
-  submit = (event, data)=>{
-    event.preventDefault()
-    this.props.selfInfo(data)
+  isChange = (e)=>{
+    const name = e.target.name
+    const value = e.target.value
+    this.setState({
+      [name]: value
+    })
   }
 
-  getData = (data)=>{
-    console.log(this.state)
+  submit = (e)=>{
+    e.preventDefault()
   }
 
   render () {
@@ -53,32 +56,90 @@ export default class PersonData extends Component {
         <div className="box-header">
                     Dữ liệu cá nhân
         </div>
-        <Form method='post' className="form-horizontal ng-pristine ng-valid" id="updateInfoForm" name="updateInfoForm">
+        <Form className="form-horizontal ng-pristine ng-valid" id="updateInfoForm" name="updateInfoForm">
           <div className="box white billing-box">
             <div className="active">
               <Row>
                 <Col col="col-sm-6">
-                  <FirstName data={this.state.firstname} getData={(data)=>this.getData(data)}/>
-                  <LastName data={this.state.lastname}/>
+                  <Form.Group>
+                    <Form.Input name="firstname" type="text" placeholder="Họ (*)" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="lastname" type="text" placeholder="Tên (*)" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
                   <Form.Group className="form-group">
                     <Form.Input readonly disabled name="email" style={{backgroundColor: '#F7F7F9'}} type="text" placeholder="Địa chỉ email (*):" defaultValue={this.state.email}/>
                   </Form.Group>
-                  <PhoneNumber data={this.state.phonenumber}/>
-                  <CompanyName data={this.state.companyname}/>
-                  <RegisterAddress data={this.state.dia_chi_dkkd}/>
-                  <Director data={this.state.ten_giam_doc}/>
-                  <TaxNo data={this.state.ma_so_thue}/>
+                  <Form.Group className="form-group">
+                    <Form.Input name="phonenumber" type="text" placeholder="Số điện thoại (*):" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="companyname" type="text" placeholder="Công ty (không bắt buộc):" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="dia_chi_dkkd" type="text" placeholder="Địa chỉ đăng kí kinh doanh (không bắt buộc):" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="ten_giam_doc" type="text" placeholder="Tên giám đốc (không bắt buộc):" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="ma_so_thue" type="text" placeholder="Mã số thuế (không bắt buộc):" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
                 </Col>
                 <Col col="col-sm-6">
-                  <Address1 data={this.state.address1}/>
-                  <Country data={this.state.country}/>
-                  <City data={this.state.city}/>
-                  <State data={this.state.state}/>
-                  <TimeZone data={this.state.timezone}/>
-                  <Address2 data={this.state.address2}/>
-                  <PostCode data={this.state.postcode}/>
+                  <Form.Group>
+                    <Form.Input name="address1" type="text" placeholder="Địa chỉ:" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.CustomSelect className="crs-country" name="country" onChange={(e)=>this.isChange(e)}>
+                      <option value="CT">
+                        Quốc Gia
+                      </option>
+                      <option value="VN">
+                        Việt Nam
+                      </option>
+                      <option value="AF">
+                        Afghanistan
+                      </option>
+                    </Form.CustomSelect>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="city" type="text" placeholder="Thành phố:" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.CustomSelect id="region" name="state" onChange={(e)=>this.isChange(e)}>
+                      <option value>
+                        Tiểu bang / Tỉnh:
+                      </option>
+                      <option value="HN">
+                        Hà Nội
+                      </option>
+                      <option value="TPHCM">
+                        TP HCM
+                      </option>
+                    </Form.CustomSelect>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.CustomSelect id="timezone" name="timezone" onChange={(e)=>this.isChange(e)}>
+                      <option value>
+                        Múi giờ:
+                      </option>
+                      <option value="Etc/GMT+12|-12:00">
+                        (GTM -12:00 ) Etc/GMT+12
+                      </option>
+                      <option value="Etc/GMT+11|-11:00">
+                        (GTM -11:00 ) Etc/GMT+11
+                      </option>
+                    </Form.CustomSelect>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="address2" type="text" placeholder="Địa chỉ 2:" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input name="postcode" type="text" placeholder="Mã bưu điện:" onChange={(e)=>this.isChange(e)}/>
+                  </Form.Group>
                   <Form.Group className="text-left">
-                    <Button success id="btUpdate" onClick={(event, data)=>this.submit(event, this.state)}>Cập nhật</Button>
+                    <Button success id="btUpdate" onClick={(e)=>this.submit(e)}>Cập nhật</Button>
                   </Form.Group>
                 </Col>
               </Row>

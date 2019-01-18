@@ -29,7 +29,6 @@ class App extends Component {
   selfInfo = (data)=>{
     var item = {}
     item.firstname = data
-    console.log(item)
   }
 
   render() {
