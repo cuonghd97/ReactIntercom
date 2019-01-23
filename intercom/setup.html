@@ -199,7 +199,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="row-click">
-                                    
+
                                     </tbody>
                                 </table>
                                 <div style="clear:both"></div>
@@ -547,7 +547,7 @@
                                     <div>
                                         <b><span class="price">Chỗ này chưa biết công thức tính sao !</span></b>
                                     </div>
-                                    <i style="font-size: 10px: clear: both; font-weight: normal">Giá trên đã bao gồm 10% thuế VAT</i>
+                                    <i style="font-size: 10px; clear: both; font-weight: normal">Giá trên đã bao gồm 10% thuế VAT</i>
                                 </div>
                             </div>
                         </div>
@@ -618,7 +618,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
-    
+
     <script src="js/app.js" type="text/javascript"></script>
                     <script type="text/javascript">
                         jQuery( document ).ready(function($) {
@@ -646,7 +646,7 @@
 
                             function Calculate() {
                                 var add_ip_price = $('#add-more-ip option:selected').val();
-                                
+
                                 var check_backup_price = $('input.enable-backup-check').prop('checked');
                                 var check_security_price = $('input.active-security-checkbox').prop('checked');
                                 if (check_backup_price == true) {
@@ -681,9 +681,9 @@
                             //     // High Plan CPU
                             //     var values = [1000000,2000000, 4000000, 6000000, 8000000, 10000000, 12000000, 14000000];
                             //     var values_p = [1, 2, 4, 6, 8,10,12,14];
-                                
+
                             //     var custom_values = [1, 2, 3];
-                                
+
                             //     // be careful! FROM and TO should be index of values array
                             //     var my_from = custom_values.indexOf(1);
                             //     var my_to = custom_values.indexOf(3);
@@ -770,9 +770,9 @@
                             // CPU
                             var values = [1000000,2000000, 4000000, 6000000, 8000000];
                             var values_p = [1, 2, 4, 6, 8];
-                            
+
                             var custom_values = [1, 2, 3];
-                            
+
                             // be careful! FROM and TO should be index of values array
                             var my_from = custom_values.indexOf(1);
                             var my_to = custom_values.indexOf(3);
@@ -795,7 +795,7 @@
                             // RAM
                             var values = [1000,2000, 3000];
                             var values_p = [1, 2, 3];
-                            
+
                             $("#ram-slider").ionRangeSlider({
                                 type: "single",
                                 grid: true,
@@ -814,7 +814,7 @@
                             // SSD
                             var values = [400,600, 800];
                             var values_p = [10, 20, 30];
-                            
+
                             $("#ssd-slider").ionRangeSlider({
                                 type: "single",
                                 grid: true,
@@ -854,7 +854,7 @@
 
                                 function Calculate() {
                                     var add_ip_price = $('#add-more-ip option:selected').val();
-                                    
+
                                     var check_backup_price = $('input.enable-backup-check').prop('checked');
                                     var check_security_price = $('input.active-security-checkbox').prop('checked');
                                     if (check_backup_price == true) {
@@ -925,6 +925,6 @@
                                     $('#summary').css('top',60);
                                 }
                             });
-                    </script> 
+                    </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ export default class APIDetail extends Component {
               <Row>
                 <Col col="col xs-12 lg-8">
                   <p style={{marginBottom: '15px'}}>API truy cập hiện đang được kích hoạt  trên tài khoản của bạn.</p>
-                  API Key: {this.props.apiKey}az9vCcdvwhIixt6z7hxBroRAdiVtU0
+                  API Key: {this.props.apiKey}
                 </Col>
                 <Col col="col xs-12 lg-4" className="text-right">
                   <NavLink to='/' className="btn btn-success">Vô hiệu hóa API</NavLink>
