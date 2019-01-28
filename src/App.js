@@ -29,7 +29,8 @@ class App extends Component {
         city: "HN",
         timezone: "Etc/GMT+12|-12:00",
         postcode: "01234"
-      }
+      },
+      dataDiskData: {}
     };
   }
 
@@ -59,6 +60,16 @@ class App extends Component {
     console.log(data);
   };
 
+  getDataDiskData = data => {
+    this.setState({
+      dataDiskData: data
+    });
+  };
+
+  componentDidUpdate() {
+    console.log(this.state.dataDiskData);
+  }
+
   render() {
     return (
       <Router>
@@ -78,6 +89,7 @@ class App extends Component {
                   addUser={data => this.addUser(data)}
                   changePass={data => this.changePass(data)}
                   getNotification={data => this.getNotification(data)}
+                  getDataDiskData={data => this.getDataDiskData(data)}
                 />
               </div>
             </div>

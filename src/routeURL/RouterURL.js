@@ -26,7 +26,15 @@ export default class RouterURL extends Component {
             />
           )}
         />
-        <Route exact path="/setup/" render={() => <Setup />} />
+        <Route
+          exact
+          path="/setup/"
+          render={() => (
+            <Setup
+              getDataDiskData={data => this.props.getDataDiskData(data)}
+            />
+          )}
+        />
         <Route
           exact
           path="/checkout/security/"
